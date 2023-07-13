@@ -1,5 +1,21 @@
+#install composer
+FROM composer:1.9.3 as vendor
+
+WORKDIR /tmp/
+
+COPY composer.json composer.json
+COPY composer.lock composer.lock
+
+RUN composer install \
+    --ignore-platform-reqs \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --prefer-dist
+
 # Use the official PHP 8.0 image as the base
 FROM php:8.0-apache
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     libzip-dev \
