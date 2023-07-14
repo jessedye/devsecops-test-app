@@ -1,6 +1,7 @@
 ignored: 
-  - DL3000 
-  - DL3025 
+  - DL3008
+  - DL3009
+  - DL3015
 
 trustedRegistries: 
   - examplecorp.com 
