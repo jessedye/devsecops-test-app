@@ -1,3 +1,6 @@
-appname: 
+appname: myapp
 image: 
 host: 
+ingressclassname: nginx
+port: 80
+containerport: 80
