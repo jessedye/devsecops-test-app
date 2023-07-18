@@ -4,15 +4,15 @@ metadata:
   namespace: {{ .Values.appname }}
   name: {{ .Values.appname }}
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingressclassname }}
   rules:
     - host: {{ .Values.host }}
       http:
         paths:
-          - path: /*
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: {{ .Values.appname }}
                 port:
-                  name: http
+                  number:  {{ .Values.port }}

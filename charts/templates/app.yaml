@@ -6,12 +6,12 @@ metadata:
   labels: 
     group: backend
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: {{ .Values.appname }}
   ports:
-    - port: 80
-      targetPort: 80
+    - port: {{ .Values.port }}
+      targetPort: {{ .Values.port }}
 ---
 
 apiVersion: apps/v1
@@ -35,4 +35,4 @@ spec:
         - name: {{ .Values.appname }}
           image: {{ .Values.image }}
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.containerport }}
