@@ -31,5 +31,8 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 # Copy the application files to the container
 COPY src/ /var/www/html
 
+#copy vendor file
+COPY --from=vendor /tmp/vendor/ /var/www/html/vendor/
+
 # Set the working directory
 WORKDIR /var/www/html
